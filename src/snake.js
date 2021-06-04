@@ -14,4 +14,17 @@ class Snake {
       "W": [0,-1]
     }
   }
+
+  move () {
+    let coord = new Coord(this.segments[0]);
+    coord.plus(Snake.DIRECTIONS[this.direction]);
+    this.segments[0] = coord.pos;
+    
+  }
+
+  turn (direction) {
+    this.direction = direction;
+  }
 }
+
+module.exports = Snake;
