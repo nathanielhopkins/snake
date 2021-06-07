@@ -5,6 +5,7 @@ class View {
     this.board = new Board();
     this.$el = $el;
     this.keyListener();
+    setInterval(this.step(), 5000);
   }
 
   keyListener() {
@@ -42,5 +43,10 @@ class View {
       }
       this.$el.append($row);
     }
+  }
+
+  step() {
+    this.board.snake.move();
+    this.render();
   }
 }
