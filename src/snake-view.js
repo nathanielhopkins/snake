@@ -50,3 +50,5 @@ class View {
     this.render();
   }
 }
+
+module.exports = View;
