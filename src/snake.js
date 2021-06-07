@@ -3,7 +3,7 @@ let Coord = require("./coord");
 class Snake {
   constructor () {
     this.direction = "N";
-    this.segments = [];
+    this.segments = [[9,9]];
   }
   
   static get DIRECTIONS () {
