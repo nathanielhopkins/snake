@@ -23,6 +23,10 @@ figure {
   border: 10px solid black;
 }
 
+ul {
+  display: flex;
+}
+
 li {
   display: block;
   height: 20px;
