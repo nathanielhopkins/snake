@@ -19,4 +19,4 @@ class Board {
   }
 }
 
-modules.export = Board;
+module.export = Board;
