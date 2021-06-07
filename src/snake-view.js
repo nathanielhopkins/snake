@@ -5,7 +5,7 @@ class View {
     this.board = new Board();
     this.$el = $el;
     this.keyListener();
-    setInterval(this.step(), 5000);
+    setInterval(() => {this.step()}, 500);
   }
 
   keyListener() {
@@ -34,11 +34,14 @@ class View {
       let $row = $("<ul>");
       for(let j=0;j<20;j++) {
         let $cell = $("<li>");
-        let pos = `[${i},${j}]`;
+        let pos = [i,j];
         $cell.data("pos", pos);
-        if(this.board.snake.segments.includes(pos)) {
-          $cell.addClass('snake');
-        }
+        this.board.snake.segments.forEach(segment => {
+          if(segment[0] == pos[0] && segment[1] == pos[1]) {
+            console.log(pos);
+            $cell.addClass('snake');
+          };
+        });
         $row.append($cell);
       }
       this.$el.append($row);
