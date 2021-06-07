@@ -26,4 +26,21 @@ class View {
       this.board.snake.turn("S")
     }
   }
+
+  render() {
+    this.$el.empty();
+    for(let i=0;i<20;i++) {
+      let $row = $("<ul>");
+      for(let j=0;j<20;j++) {
+        let $cell = $("<li>");
+        let pos = `[${i},${j}]`;
+        $cell.data("pos", pos);
+        if(this.board.snake.segments.includes(pos)) {
+          $cell.addClass('snake');
+        }
+        $row.append($cell);
+      }
+      this.$el.append($row);
+    }
+  }
 }
