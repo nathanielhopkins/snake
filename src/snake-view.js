@@ -5,7 +5,7 @@ class View {
     this.board = new Board();
     this.$el = $el;
     this.keyListener();
-    setInterval(() => {this.step()}, 500);
+    this.interval = setInterval(() => {this.step()}, 500);
   }
 
   keyListener() {
@@ -45,6 +45,11 @@ class View {
 
   step() {
     this.board.snake.move();
+    if(this.board.snake.collision()) {
+      clearInterval(this.interval);
+      alert('You lose!');
+      return;
+    };
     this.board.updateBoard();
     this.render();
   }
