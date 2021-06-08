@@ -19,11 +19,28 @@ class Snake {
     let coord = new Coord(this.segments[0]);
     coord.plus(Snake.DIRECTIONS[this.direction]);
     this.segments[0] = coord.pos;
-    
   }
 
   turn (direction) {
     this.direction = direction;
+  }
+
+  outOfBounds() {
+    if(this.segments[0][0] > 19 || this.segments[0][0] < 0) {
+      return true;
+    } else if (this.segments[0][1] > 19 || this.segments[0][1] < 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  collision() {
+    if(this.outOfBounds()) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 
