@@ -17,6 +17,13 @@ class Board {
     }
     return grid;
   }
+
+  updateBoard() {
+    this.grid = this.buildGrid();
+    this.snake.segments.forEach(segment => {
+      this.grid[segment[0]][segment[1]] = 'snake';
+    })
+  }
 }
 
 module.exports = Board;
