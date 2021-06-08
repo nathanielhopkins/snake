@@ -34,11 +34,9 @@ class View {
         let $cell = $("<li>");
         let pos = [i,j];
         $cell.data("pos", pos);
-        this.board.snake.segments.forEach(segment => {
-          if(segment[0] == pos[0] && segment[1] == pos[1]) {
-            $cell.addClass('snake');
-          };
-        });
+        if(this.board.grid[pos[0]][pos[1]] == 'snake') {
+          $cell.addClass('snake');
+        };
         $row.append($cell);
       }
       this.$el.append($row);
@@ -47,6 +45,7 @@ class View {
 
   step() {
     this.board.snake.move();
+    this.board.updateBoard();
     this.render();
   }
 }
