@@ -9,15 +9,13 @@ class View {
   }
 
   keyListener() {
-    this.$el.on("keydown", event => {
-      handleKeyEvent(event.target);
+    $(window).on("keydown",document, event =>{
+      this.handleKeyEvent(event.keyCode);
     })
   }
 
-  handleKeyEvent(key) {
-    let keyCode = key.keyCode();
-    console.log(keyCode);
-    if(keyCode == 37) {
+  handleKeyEvent(keyCode) {
+    if(keyCode === 37) {
       this.board.snake.turn("W");
     } else if (keyCode === 38) {
       this.board.snake.turn("N");
@@ -38,7 +36,6 @@ class View {
         $cell.data("pos", pos);
         this.board.snake.segments.forEach(segment => {
           if(segment[0] == pos[0] && segment[1] == pos[1]) {
-            console.log(pos);
             $cell.addClass('snake');
           };
         });
