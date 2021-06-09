@@ -4,6 +4,7 @@ class Board {
   constructor () {
     this.snake = new Snake();
     this.grid = this.buildGrid(); 
+    this.placeApple();
   }
 
   buildGrid() {
@@ -28,6 +29,7 @@ class Board {
   placeApple() {
     let pos = Coord.randomPos();
     this.apple = pos;
+    this.grid[pos[0]][pos[1]] = 'apple';
   }
 }
 
