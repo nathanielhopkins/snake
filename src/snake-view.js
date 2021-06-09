@@ -52,7 +52,7 @@ class View {
       alert('You lose!');
       return;
     } else if (this.board.appleCollision()) {
-      alert('apple collision!');
+      this.board.snake.eatApple();
       this.board.placeApple();
     }
     this.board.updateBoard();
