@@ -1,4 +1,5 @@
 let Snake = require("./snake");
+let Coord = require("./coord");
 
 class Board {
   constructor () {
@@ -24,12 +25,21 @@ class Board {
     this.snake.segments.forEach(segment => {
       this.grid[segment[0]][segment[1]] = 'snake';
     })
+    this.grid[this.apple[0]][this.apple[1]] = 'apple';
   }
 
   placeApple() {
     let pos = Coord.randomPos();
     this.apple = pos;
     this.grid[pos[0]][pos[1]] = 'apple';
+  }
+
+  appleCollision() {
+    if(this.snake.segments[0][0] == this.apple[0] && this.snake.segments[0][1] == this.apple[1]) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 
