@@ -18,7 +18,9 @@ class Snake {
   move () {
     let coord = new Coord(this.segments[0]);
     coord.plus(Snake.DIRECTIONS[this.direction]);
-    this.segments[0] = coord.pos;
+    this.segments.push(coord.pos);
+
+    this.segments.shift();
   }
 
   turn (direction) {
