@@ -25,7 +25,7 @@ eval("let Snake = __webpack_require__(/*! ./snake */ \"./src/snake.js\");\n\ncla
   \**********************/
 /***/ ((module) => {
 
-eval("class Coord {\n  constructor (pos) {\n    this.pos = pos;\n  }\n\n  plus (otherCoord) {\n    this.pos[0] += otherCoord[0];\n    this.pos[1] += otherCoord[1];\n  }\n\n  equals (otherCoord) {\n    if (this.pos[0] === otherCoord[0] && this.pos[1] === otherCoord[1]) {\n      return true;\n    } else {\n      return false;\n    }\n  }\n}\n\nmodule.exports = Coord;\n\n//# sourceURL=webpack:///./src/coord.js?");
+eval("class Coord {\n  constructor (pos) {\n    this.pos = pos;\n  }\n\n  plus (otherCoord) {\n    this.pos[0] += otherCoord[0];\n    this.pos[1] += otherCoord[1];\n  }\n\n  equals (otherCoord) {\n    if (this.pos[0] === otherCoord[0] && this.pos[1] === otherCoord[1]) {\n      return true;\n    } else {\n      return false;\n    }\n  }\n\n  static randomPos() {\n    let x = Math.floor(Math.random() * 20);\n    let y = Math.floor(Math.random() * 20);\n    let pos = [x,y];\n    return pos;\n  }\n}\n\nmodule.exports = Coord;\n\n//# sourceURL=webpack:///./src/coord.js?");
 
 /***/ }),
 

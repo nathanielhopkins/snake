@@ -15,6 +15,13 @@ class Coord {
       return false;
     }
   }
+
+  static randomPos() {
+    let x = Math.floor(Math.random() * 20);
+    let y = Math.floor(Math.random() * 20);
+    let pos = [x,y];
+    return pos;
+  }
 }
 
 module.exports = Coord;
