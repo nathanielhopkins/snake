@@ -36,6 +36,8 @@ class View {
         $cell.data("pos", pos);
         if(this.board.grid[pos[0]][pos[1]] == 'snake') {
           $cell.addClass('snake');
+        } else if (this.board.grid[pos[0]][pos[1]] == 'apple'){
+          $cell.addClass('apple');
         };
         $row.append($cell);
       }
