@@ -51,7 +51,10 @@ class View {
       clearInterval(this.interval);
       alert('You lose!');
       return;
-    };
+    } else if (this.board.appleCollision()) {
+      alert('apple collision!');
+      this.board.placeApple();
+    }
     this.board.updateBoard();
     this.render();
   }
