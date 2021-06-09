@@ -15,7 +15,7 @@
   \**********************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("let Snake = __webpack_require__(/*! ./snake */ \"./src/snake.js\");\n\nclass Board {\n  constructor () {\n    this.snake = new Snake();\n    this.grid = this.buildGrid(); \n  }\n\n  buildGrid() {\n    let grid = [];\n    for (let i=0;i<20;i++) {\n      let row = [];\n      for (let j=0;j<20;j++) {\n        row.push([]);\n      }\n      grid.push(row);\n    }\n    return grid;\n  }\n\n  updateBoard() {\n    this.grid = this.buildGrid();\n    this.snake.segments.forEach(segment => {\n      this.grid[segment[0]][segment[1]] = 'snake';\n    })\n  }\n}\n\nmodule.exports = Board;\n\n//# sourceURL=webpack:///./src/board.js?");
+eval("let Snake = __webpack_require__(/*! ./snake */ \"./src/snake.js\");\n\nclass Board {\n  constructor () {\n    this.snake = new Snake();\n    this.grid = this.buildGrid(); \n  }\n\n  buildGrid() {\n    let grid = [];\n    for (let i=0;i<20;i++) {\n      let row = [];\n      for (let j=0;j<20;j++) {\n        row.push([]);\n      }\n      grid.push(row);\n    }\n    return grid;\n  }\n\n  updateBoard() {\n    this.grid = this.buildGrid();\n    this.snake.segments.forEach(segment => {\n      this.grid[segment[0]][segment[1]] = 'snake';\n    })\n  }\n\n  placeApple() {\n    let pos = Coord.randomPos();\n    this.apple = pos;\n  }\n}\n\nmodule.exports = Board;\n\n//# sourceURL=webpack:///./src/board.js?");
 
 /***/ }),
 

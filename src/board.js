@@ -24,6 +24,11 @@ class Board {
       this.grid[segment[0]][segment[1]] = 'snake';
     })
   }
+
+  placeApple() {
+    let pos = Coord.randomPos();
+    this.apple = pos;
+  }
 }
 
 module.exports = Board;
