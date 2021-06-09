@@ -4,6 +4,7 @@ class Snake {
   constructor () {
     this.direction = "N";
     this.segments = [[10,10]];
+    this.grow = 0;
   }
   
   static get DIRECTIONS () {
@@ -19,8 +20,12 @@ class Snake {
     let coord = new Coord(this.segments[0]);
     coord.plus(Snake.DIRECTIONS[this.direction]);
     this.segments.push(coord.pos);
-
-    this.segments.shift();
+    
+    if(this.grow > 0) {
+      this.grow -= 1;
+    } else {
+      this.segments.shift();
+    };
   }
 
   turn (direction) {
