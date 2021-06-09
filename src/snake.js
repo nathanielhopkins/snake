@@ -17,7 +17,7 @@ class Snake {
   }
 
   move () {
-    let coord = new Coord(this.segments[0]);
+    let coord = new Coord(this.segments.slice(-1)[0]);
     coord.plus(Snake.DIRECTIONS[this.direction]);
     this.segments.push(coord.pos);
     
@@ -48,6 +48,10 @@ class Snake {
     } else {
       return false;
     }
+  }
+
+  eatApple() {
+    this.grow += 3;
   }
 }
 
