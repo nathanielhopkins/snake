@@ -33,6 +33,11 @@ class Snake {
   }
 
   turn (direction) {
+    let coord1 = new Coord(Snake.DIRECTIONS[this.direction]);
+    let coord2 = new Coord(Snake.DIRECTIONS[direction]);
+    if(coord1.isOpposite(coord2)) {
+      return;
+    } 
     this.direction = direction;
   }
 
