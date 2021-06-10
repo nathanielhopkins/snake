@@ -31,7 +31,13 @@ class Board {
   placeApple() {
     let pos = Coord.randomPos();
     this.apple = pos;
-    this.grid[pos[0]][pos[1]] = 'apple';
+    for(let i = 0; i < this.snake.segments.length; i++) {
+      if ((this.snake.segments[i][0] == pos[0]) && (this.snake.segments[i][1] == pos[1])){
+        this.placeApple();
+      } else {
+        this.grid[pos[0]][pos[1]] = 'apple';
+      };
+    };
   }
 
   appleCollision() {
