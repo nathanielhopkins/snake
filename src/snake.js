@@ -18,8 +18,8 @@ class Snake {
 
   move () {
     let coord = new Coord(this.segments.slice(-1)[0]);
-    coord.plus(Snake.DIRECTIONS[this.direction]);
-    this.segments.push(coord.pos);
+    let newCoord = coord.plus(Snake.DIRECTIONS[this.direction]);
+    this.segments.push(newCoord.pos);
     
     if(this.grow > 0) {
       this.grow -= 1;
