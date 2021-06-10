@@ -52,11 +52,21 @@ class Snake {
   }
 
   collision() {
-    if(this.outOfBounds()) {
+    if(this.outOfBounds() || this.selfCollision()) {
       return true;
     } else {
       return false;
     }
+  }
+
+  selfCollision() {
+    let sC = false;
+    for(let i = 0;i<this.segments.length - 1;i++) {
+      if((this.segments[i][0] == this.head()[0]) && (this.segments[i][1] == this.head()[1])) {
+        sC = true;
+      }
+    }
+    return sC;
   }
 
   eatApple() {
