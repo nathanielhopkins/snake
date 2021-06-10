@@ -16,6 +16,10 @@ class Coord {
     }
   }
 
+  isOpposite(otherCoord) {
+    return (this.pos[0] == (-1 * otherCoord[0]) && this.pos[1] == (-1 * otherCoord[1]))
+  }
+
   static randomPos() {
     let x = Math.floor(Math.random() * 20);
     let y = Math.floor(Math.random() * 20);
