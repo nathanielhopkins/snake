@@ -35,7 +35,7 @@ class Board {
   }
 
   appleCollision() {
-    if(this.snake.segments[0][0] == this.apple[0] && this.snake.segments[0][1] == this.apple[1]) {
+    if(this.snake.head()[0] == this.apple[0] && this.snake.head()[1] == this.apple[1]) {
       return true;
     } else {
       return false;
