@@ -16,8 +16,12 @@ class Snake {
     }
   }
 
+  head() {
+    return this.segments.slice(-1)[0];
+  }
+
   move () {
-    let coord = new Coord(this.segments.slice(-1)[0]);
+    let coord = new Coord(this.head());
     let newCoord = coord.plus(Snake.DIRECTIONS[this.direction]);
     this.segments.push(newCoord.pos);
     
@@ -33,9 +37,9 @@ class Snake {
   }
 
   outOfBounds() {
-    if(this.segments[0][0] > 19 || this.segments[0][0] < 0) {
+    if(this.head()[0] > 19 || this.head()[0] < 0) {
       return true;
-    } else if (this.segments[0][1] > 19 || this.segments[0][1] < 0) {
+    } else if (this.head()[1] > 19 || this.head()[1] < 0) {
       return true;
     } else {
       return false;
