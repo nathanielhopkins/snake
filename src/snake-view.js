@@ -5,7 +5,7 @@ class View {
     this.board = new Board();
     this.$el = $el;
     this.keyListener();
-    this.interval = setInterval(() => {this.step()}, 500);
+    this.interval = setInterval(() => {this.step()}, 100);
   }
 
   keyListener() {

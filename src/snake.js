@@ -55,7 +55,7 @@ class Snake {
   }
 
   eatApple() {
-    this.grow += 3;
+    this.grow += 2;
   }
 }
 
