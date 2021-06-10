@@ -17,7 +17,7 @@ class Coord {
   }
 
   isOpposite(otherCoord) {
-    return (this.pos[0] == (-1 * otherCoord[0]) && this.pos[1] == (-1 * otherCoord[1]))
+    return ((this.pos[0] == (-1 * otherCoord.pos[0])) && (this.pos[1] == (-1 * otherCoord.pos[1])))
   }
 
   static randomPos() {
