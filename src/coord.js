@@ -4,8 +4,8 @@ class Coord {
   }
 
   plus (otherCoord) {
-    this.pos[0] += otherCoord[0];
-    this.pos[1] += otherCoord[1];
+    let newCoord = new Coord([this.pos[0] + otherCoord[0], this.pos[1] + otherCoord[1]]);
+    return newCoord;
   }
 
   equals (otherCoord) {
