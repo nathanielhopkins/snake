@@ -52,8 +52,8 @@ class View {
   step() {
     this.board.snake.move();
     if(this.board.snake.collision()) {
-      clearInterval(this.interval);
-      alert('You lose!');
+      this.togglePause;
+      this.endGame();
       return;
     } else if (this.board.appleCollision()) {
       this.board.snake.eatApple();
@@ -77,14 +77,25 @@ class View {
       $($banner).css("display","block")
     } else {
       this.pause = false;
-      $($banner).css("display", "none")
+      $($banner).removeAttr("style");
       this.interval = setInterval(() => { this.step() }, 100);
     }
   }
 
   restart() {
+    let $gameOver = $(".game-over");
+    $($gameOver).removeAttr("style");
     this.board = new Board();
-    this.interval = setInterval(() => { this.step() }, 100);
+  }
+
+  endGame() {
+    let $gameOver = $(".game-over");
+    $($gameOver).css("display", "block");
+    $(window).on("keydown", document, event => {
+      if(event.keyCode === 13) {
+        this.restart();
+      }
+    })
   }
 }
 
