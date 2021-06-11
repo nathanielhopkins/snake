@@ -70,11 +70,14 @@ class View {
   }
 
   togglePause() {
+    let $banner = $(".banner");
     if(this.pause == false) {
       this.pause = true;
       clearInterval(this.interval);
+      $($banner).css("display","block")
     } else {
       this.pause = false;
+      $($banner).css("display", "none")
       this.interval = setInterval(() => { this.step() }, 100);
     }
   }
