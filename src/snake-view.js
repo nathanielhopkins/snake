@@ -81,6 +81,11 @@ class View {
       this.interval = setInterval(() => { this.step() }, 100);
     }
   }
+
+  restart() {
+    this.board = new Board();
+    this.interval = setInterval(() => { this.step() }, 100);
+  }
 }
 
 module.exports = View;
