@@ -4,6 +4,7 @@ class View {
   constructor($el) {
     this.board = new Board();
     this.$el = $el;
+    this.highScore = 0;
     this.pause = false;
     this.gameOver = false;
     this.keyListener();
@@ -47,7 +48,7 @@ class View {
       }
       this.$el.append($row);
     }
-    this.renderScore();
+    this.renderScores();
   }
 
   step() {
@@ -65,9 +66,14 @@ class View {
     this.render();
   }
 
-  renderScore() {
+  renderScores() {
     let $score = $(".score");
     $($score).html(`Score: ${this.board.score}`);
+    if(this.board.score > this.highScore) {
+      this.highScore = this.board.score;
+    }
+    let $highScore = $(".high-score");
+    $($highScore).html(`High Score: ${this.highScore}`)
   }
 
   togglePause() {
