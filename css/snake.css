@@ -45,7 +45,13 @@ li {
 .score {
   display: block;
   color: black;
-  margin: 20px auto;
+  margin: 10px auto;
+}
+
+.high-score {
+  display: block;
+  color: black;
+  margin: 10px auto;
 }
 
 .banner {
