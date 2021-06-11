@@ -43,6 +43,7 @@ class View {
       }
       this.$el.append($row);
     }
+    this.renderScore();
   }
 
   step() {
@@ -53,10 +54,16 @@ class View {
       return;
     } else if (this.board.appleCollision()) {
       this.board.snake.eatApple();
+      this.board.score += 10;
       this.board.placeApple();
     }
     this.board.updateBoard();
     this.render();
+  }
+
+  renderScore() {
+    let $score = $(".score");
+    $($score).html(`Score: ${this.board.score}`);
   }
 }
 
