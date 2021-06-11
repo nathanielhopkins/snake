@@ -40,3 +40,9 @@ li {
 .apple {
   background: red;
 }
+
+.score {
+  display: block;
+  color: black;
+  margin: 20px auto;
+}
