@@ -6,6 +6,7 @@ class Board {
     this.snake = new Snake();
     this.grid = this.buildGrid(); 
     this.placeApple();
+    this.score = 0;
   }
 
   buildGrid() {
