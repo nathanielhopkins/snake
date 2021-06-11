@@ -4,6 +4,7 @@ class View {
   constructor($el) {
     this.board = new Board();
     this.$el = $el;
+    this.pause = false;
     this.keyListener();
     this.interval = setInterval(() => {this.step()}, 100);
   }
@@ -23,6 +24,8 @@ class View {
       this.board.snake.turn("E");
     } else if (keyCode === 40) {
       this.board.snake.turn("S")
+    } else if (keyCode === 32) {
+      this.togglePause();
     }
   }
 
@@ -64,6 +67,16 @@ class View {
   renderScore() {
     let $score = $(".score");
     $($score).html(`Score: ${this.board.score}`);
+  }
+
+  togglePause() {
+    if(this.pause == false) {
+      this.pause = true;
+      clearInterval(this.interval);
+    } else {
+      this.pause = false;
+      this.interval = setInterval(() => { this.step() }, 100);
+    }
   }
 }
 
