@@ -5,6 +5,7 @@ class View {
     this.board = new Board();
     this.$el = $el;
     this.pause = false;
+    this.gameOver = false;
     this.keyListener();
     this.interval = setInterval(() => {this.step()}, 100);
   }
@@ -52,7 +53,7 @@ class View {
   step() {
     this.board.snake.move();
     if(this.board.snake.collision()) {
-      this.togglePause;
+      this.gameOver = true;
       this.endGame();
       return;
     } else if (this.board.appleCollision()) {
@@ -83,15 +84,20 @@ class View {
   }
 
   restart() {
-    let $gameOver = $(".game-over");
-    $($gameOver).removeAttr("style");
-    this.board = new Board();
+    if(this.gameOver = true) {
+      let $gameOver = $(".game-over");
+      $($gameOver).removeAttr("style");
+      this.board = new Board();
+      clearInterval(this.interval);
+      this.interval = setInterval(() => { this.step() }, 100);
+    };
   }
 
   endGame() {
+    clearInterval(this.interval);
     let $gameOver = $(".game-over");
     $($gameOver).css("display", "block");
-    $(window).on("keydown", document, event => {
+    $(window).on("keypress", document, event => {
       if(event.keyCode === 13) {
         this.restart();
       }
