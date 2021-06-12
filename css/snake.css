@@ -12,16 +12,38 @@ body {
   text-align: center;
   font-weight: bold;
   position: relative;
+  background-color: black;
+}
+
+main {
+  width: 60%;
+  height: 100%;
+  margin: 15px auto;
+  background-color: rgb(243, 243, 243);
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 h1 {
   font-size: 60px;
-  margin: 30px;
+  /* margin: 30px; */
+  margin-bottom: 10px;
+  color: green;
+  text-shadow:
+    -1.5px -1.5px 0 #000,  
+    1.5px -1.5px 0 #000,
+    -1.5px 1.5px 0 #000,
+    1.5px 1.5px 0 #000;
+}
+
+.e {
+  color: red;
 }
 
 figure {
   display: inline-block;
   border: 10px solid black;
+  margin-bottom: 30px;
 }
 
 ul {
@@ -45,13 +67,14 @@ li {
 .score {
   display: block;
   color: black;
-  margin: 10px auto;
+  margin: 0px auto;
 }
 
 .high-score {
   display: block;
   color: black;
   margin: 10px auto;
+  margin-bottom: 20px;
 }
 
 .banner {
